@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LezzetKapında - Menü</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            color: white;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px 20px;
+        }
+
+        header h1 { font-size: 3.5rem; color: #f1c40f; margin-bottom: 10px; }
+
+        /* --- Flexbox Kapsayıcı --- */
+        .food-container {
+            display: flex;
+            flex-direction: row;        /* Yatay akış */
+            flex-wrap: wrap;            /* Sığmazsa alta geç */
+            justify-content: center;    /* Yatayda merkezle */
+            align-items: stretch;       /* Kartların boylarını eşitle */
+            
+            gap: 30px;
+            padding: 40px 20px;
+        }
+
+        /* Yemek Kartları */
+        .food-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 40px 30px;
+            width: 320px;
+            text-align: center;
+            transition: all 0.3s ease;
+            
+            /* Kart içi dikey hizalama için flex */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; 
+        }
+
+        .food-card:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .food-card h3 { 
+            font-size: 1.8rem; 
+            margin-bottom: 15px; 
+            color: #f1c40f;
+            text-transform: uppercase;
+        }
+
+        .food-card p {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            color: #ecf0f1;
+        }
+
+        /* Fiyat ve Buton Alanı */
+        .price {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 20px 0;
+            display: block;
+        }
+
+        .order-btn {
+            background: #e67e22;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .order-btn:hover {
+            background: #d35400;
+        }
+
+        /* --- Responsive Tasarım (Mobil) --- */
+        @media (max-width: 900px) {
+            .food-container {
+                flex-direction: column; /* Mobilde dikey (column) akış */
+                align-items: center;
+            }
+
+            .food-card {
+                width: 90%;
+                max-width: 450px;
+            }
+
+            header h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Şefin Tavsiyeleri</h1>
+        <p>Günün en taze ve en lezzetli seçenekleri burada.</p>
+    </header>
+
+    <div class="food-container">
+        <div class="food-card">
+            <div>
+                <h3>Karışık Pizza</h3>
+                <p>Mantar, mısır, zeytin, salam, pastırma, janbon, karides, Avokado, sucuk ve özel mozzarella peyniri ile harmanlanmış klasik lezzet.</p>
+            </div>
+            <div>
+                <span class="price">980 TL</span>
+                <button class="order-btn">Sipariş Ver</button>
+            </div>
+        </div>
+
+        <div class="food-card">
+            <div>
+                <h3>Double Burger</h3>
+                <p>450gr dana köfte, cheddar peyniri, karamelize soğan ve çıtır patates eşliğinde.</p>
+            </div>
+            <div>
+                <span class="price">845 TL</span>
+                <button class="order-btn">Sipariş Ver</button>
+            </div>
+        </div>
+
+        <div class="food-card">
+            <div>
+                <h3>Sezar Salata</h3>
+                <p>Izgara tavuk dilimleri, kruton ekmek, özel sos ve taze marulun muhteşem buluşması.</p>
+            </div>
+            <div>
+                <span class="price">660 TL</span>
+                <button class="order-btn">Sipariş Ver</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
